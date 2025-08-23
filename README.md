@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# React Live Markdown Editor Comparison
+<div align="center">
+  <img src="demopicture.png" alt="WYSIWYG Markdown Editor Image" style="width:60%; height:auto;">
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+--- 
 
-Currently, two official plugins are available:
+### 📖 Description
+This is a very basic component that implements a live "What you see is what you get" (WYSIWYG) Markdown editor in React using several JavaScript Markdown editor libraries, with the ability to switch between libraries with the press of a button. The libraries currently available to switch between are:
+* [ProseMirror](https://prosemirror.net/) 
+* [tiptap.js](https://tiptap.dev/docs) with [marked.js](https://marked.js.org/)
+* [markdown-it](https://github.com/markdown-it/markdown-it#readme)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The point of this component is to create an editor that I can use to author blog posts in-browser, and more or less see exactly what the blog post will look like before sending the text data for the blog post for storage on the backend in markdown format. The backend will send the markdown for a specific blog post upon request, and display it for website visitors in roughly the same way it is displayed in this WYSIWYG Editor. So I'm looking for solutions for converting to and from plaintext and markdown (and possibly HTML as well) while displying the conversions live on the screen as you type.   
 
-## Expanding the ESLint configuration
+I am trying out various libraries for this task so I may have other repos with similar WYSIWYG Markdown React editor components available on my Github profile created with different libraries, depending on when you are reading this.    
+<br><br/> 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠 Technologies Used
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* _React_
+* _JavaScript_
+* _HTML_
+* _sass_
+* _eslint_
+* _ProseMirror_ \([docs](https://prosemirror.net/docs/)\)
+* _tiptap.js_ \([docs](https://tiptap.dev/docs)\)
+* _marked.js_ \([docs](https://marked.js.org/)\)
+* _markdown-it_ \([repo/docs](https://github.com/markdown-it/markdown-it#readme)\)
+* _npm_
+<br><br/>
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 🦠 Known Bugs, Issues, or Comments
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Default styling is basic to ensure easier portability. For instance the the default selected button is not highlighted on page load. 
+2. Default styling is made for desktop viewing rather than mobile
+3. Default styling uses `.scss` (sass) files rather than `.css`, but no sass-specific syntax or features (mixins, etc) are used, so it should work fine to rename the stylesheets with a `.css` filename if you don't want to install sass
+3. State is not output to anywhere (no back-end or local storage used), because this is highly dependent upon specific implementation details and the goal is to see how each library's UI behaves as well as how simple the code and its dependencies are
+4. Input needs to be sanitized!
+5. Raw HTML View isn't working for ProseMirror yet!
+6. Need to add more libraries (Quill? Slate? Others?)
+
+<br><br/>
+
+### 🔧 Setup/Installation
+
+##### Installing this entire repo
+* _clone git repository to a local machine_
+* _navigate to root folder of the project using command line_
+* _use the '$ npm install' command to install necessary packages_
+* _type in '$ npm run build' to build project_
+* _type in '$ npm run dev' command to open project in browser and start live server_
+* _have a great time all the time_
+
+##### Copying component to an existing React Project
+* _copy `src/components/LiveMarkdownEditor/` folder into your Project wherever React components are placed_
+* _install dependencies listed in package.json (npm example: `npm install markdown-it`)_
+* _install sass if you want to use `.scss` files (`npm install sass`) OR change `.scss` filenames to have `.css` extensions_
+* _i've included default demonstration text that displays on app load. If you do not want this text, go inside each of the [LibraryName]Editor.jsx files that represent the main code for each library, delete the import and the useState references to the demo text files (demoText-TipTap.js for example). _
+* _modify styling and React elements as necessary to fit your project_
+* _have an excellent rest of your day_
+
+
+## ⚖️ License
+
+[LINK](https://opensource.org/licenses/MIT)    
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+MIT License
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
+If you have any issues, questions, or canned fish recommendations, send me a message!    
+Copyright (c) _2024_  _Eric Crudup_
+
+<center><a href="#">Return to Top</a></center>
