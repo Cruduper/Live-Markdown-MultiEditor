@@ -1,8 +1,9 @@
+import ProseMirrorEditor from './ProseMirrorEditor/ProseMirrorEditor';
 
 function MultiEditor() {
   return (
     <>
-      <div>test</div>  
+      <ProseMirrorEditor/> 
     </>
   )
 }
