@@ -32,12 +32,12 @@ I am trying out various libraries for this task so I may have other repos with s
 
 ### 🦠 Known Bugs, Issues, or Comments
 
-1. Default styling is basic to ensure easier portability. For instance the the default selected button is not highlighted on page load. 
+1. Default styling is basic to ensure easier portability. For instance the the default selected button is not highlighted on page load
 2. Default styling is made for desktop viewing rather than mobile
 3. Default styling uses `.scss` (sass) files rather than `.css`, but no sass-specific syntax or features (mixins, etc) are used, so it should work fine to rename the stylesheets with a `.css` filename if you don't want to install sass
-3. State is not output to anywhere (no back-end or local storage used), because this is highly dependent upon specific implementation details and the goal is to see how each library's UI behaves as well as how simple the code and its dependencies are
+3. State is not output to anywhere (no back-end or local storage used), because state use is highly dependent upon specific implementation details and the goal is only to see how each library's UI behaves as well as how simple the code and its dependencies are
 4. Input needs to be sanitized!
-5. Raw HTML View isn't working for ProseMirror yet!
+5. ProseMirror has issues with Raw HTML View, styling, and URL links
 6. Need to add more libraries (Quill? Slate? Others?)
 
 <br><br/>
