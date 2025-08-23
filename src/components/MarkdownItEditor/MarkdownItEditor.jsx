@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MarkdownIt from 'markdown-it';
-import {demoText} from '../../data/demoText-MarkdownIt.js'
+import {demoText} from '../../data/demoText.js'
 import './MarkdownItEditor.scss';
 
 const md_it = new MarkdownIt();

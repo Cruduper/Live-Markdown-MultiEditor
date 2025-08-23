@@ -4,7 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import { marked } from 'marked';
-import { demoText } from '../../data/demoText-TipTap.js'
+import { demoText } from '../../data/demoText.js'
 import './TipTapEditor.scss'
 
 const MarkdownEditor = () => {

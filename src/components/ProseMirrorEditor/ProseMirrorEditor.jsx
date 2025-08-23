@@ -8,7 +8,7 @@ import { baseKeymap } from "prosemirror-commands"
 import { schema, defaultMarkdownParser, defaultMarkdownSerializer } from "prosemirror-markdown";
 // import { exampleSetup } from "prosemirror-example-setup";
 import "prosemirror-view/style/prosemirror.css";
-import demoText from '../../data/demoText-ProseMirror.js'
+import demoText from '../../data/demoText.js'
 import './ProseMirrorEditor.scss';
 
 
