@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import ProseMirrorEditor from './ProseMirrorEditor/ProseMirrorEditor';
 import TipTapEditor from './TipTapEditor/TipTapEditor';
+import MarkdownItEditor from './MarkdownItEditor/MarkdownItEditor';
 
 function MultiEditor() {
   const [editorType, setEditorType] = useState('TipTap'); // "TipTap", "Markdown-it", "ProseMirror"
@@ -13,7 +14,7 @@ function MultiEditor() {
       return <ProseMirrorEditor/>
     }
     else if (editorType === 'Markdown-it') {
-      return <div>placeholder for markdown-it component</div>
+      return <MarkdownItEditor/>
     }
     else {
       return <div>ERROR</div>
