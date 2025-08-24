@@ -11,7 +11,7 @@ This is a very basic component that implements a live "What you see is what you 
 * [tiptap.js](https://tiptap.dev/docs) with [marked.js](https://marked.js.org/)
 * [markdown-it](https://github.com/markdown-it/markdown-it#readme)
 
-The point of this component is to create an editor that I can use to author blog posts in-browser, and more or less see exactly what the blog post will look like before sending the text data for the blog post for storage on the backend in markdown format. The backend will send the markdown for a specific blog post upon request, and display it for website visitors in roughly the same way it is displayed in this WYSIWYG Editor. So I'm looking for solutions for converting to and from plaintext and markdown (and possibly HTML as well) while displying the conversions live on the screen as you type.   
+The point of this component is to create an editor that I can use to author blog posts in-browser, and during the process of writing I want to be able to more or less know what the blog post will look like when it is displayed to a user before sending the raw markdown text to the backend. During a page visit, the backend will send the raw markdown for a specific blog post upon request, and display it for website visitors in roughly the same way it is displayed in this WYSIWYG Editor.
 
 I am trying out various libraries for this task so I may have other repos with similar WYSIWYG Markdown React editor components available on my Github profile created with different libraries, depending on when you are reading this.    
 <br><br/> 
@@ -37,7 +37,7 @@ I am trying out various libraries for this task so I may have other repos with s
 3. Default styling uses `.scss` (sass) files rather than `.css`, but no sass-specific syntax or features (mixins, etc) are used, so it should work fine to rename the stylesheets with a `.css` filename if you don't want to install sass
 3. State is not output to anywhere (no back-end or local storage used), because state use is highly dependent upon specific implementation details and the goal is only to see how each library's UI behaves as well as how simple the code and its dependencies are
 4. Input needs to be sanitized!
-5. ProseMirror has issues with Raw HTML View, styling, and URL links
+5. ProseMirror has issues with Raw HTML View, some styling (strikeouts, etc), and URL links
 6. Need to add more libraries (Quill? Slate? Others?)
 
 <br><br/>
