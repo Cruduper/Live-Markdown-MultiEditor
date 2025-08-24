@@ -43,19 +43,17 @@ function MarkdownView({ content, onChange }) {
   );
 }
 
-// ProseMirrorView Component
+
 function ProseMirrorView({ content, onChange }) {
   const editorRef = useRef(null);
   const viewRef = useRef(null);
 
   useEffect(() => {
-    // Initialize ProseMirror editor
     if (editorRef.current) {
       viewRef.current = new EditorView(editorRef.current, {
         state: EditorState.create({
           doc: defaultMarkdownParser.parse(content),
           plugins: [
-            // exampleSetup({ schema }),
             history(),
             keymap({ "Mod-z": undo, "Mod-y": redo })
           ]
@@ -69,7 +67,6 @@ function ProseMirrorView({ content, onChange }) {
       });
     }
 
-    // On unmount, destroy the ProseMirror instance
     return () => {
       if (viewRef.current) {
         onChange(defaultMarkdownSerializer.serialize(viewRef.current.state.doc));
@@ -78,7 +75,8 @@ function ProseMirrorView({ content, onChange }) {
     };
   }, [content, onChange]);
 
-  return <div ref={editorRef} style={{ border: "1px solid black", minHeight: "400px", minWidth: "400px" }} />;
+  return <div ref={editorRef} 
+  />;
 }
 
 // Main Editor Component
