@@ -1,4 +1,4 @@
-import MultiEditor from './components/MultiEditor'
+import MultiEditor from './components/MultiEditor/MultiEditor'
 import './styles/globals.scss'
 
 

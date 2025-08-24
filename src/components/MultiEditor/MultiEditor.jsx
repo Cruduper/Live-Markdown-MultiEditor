@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
-import ProseMirrorEditor from './ProseMirrorEditor/ProseMirrorEditor';
-import TipTapEditor from './TipTapEditor/TipTapEditor';
-import MarkdownItEditor from './MarkdownItEditor/MarkdownItEditor';
+import ProseMirrorEditor from '../ProseMirrorEditor/ProseMirrorEditor';
+import TipTapEditor from '../TipTapEditor/TipTapEditor';
+import MarkdownItEditor from '../MarkdownItEditor/MarkdownItEditor';
 
 function MultiEditor() {
   const [editorType, setEditorType] = useState('TipTap'); // "TipTap", "Markdown-it", "ProseMirror"
