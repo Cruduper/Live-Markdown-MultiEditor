@@ -80,7 +80,7 @@ function ProseMirrorView({ content, onChange }) {
 
 // Main Editor Component
 function LiveMarkdownEditor() {
-  const [viewMode, setViewMode] = useState('HTML Preview'); // 'HTML Preview', 'Raw Markdown', or 'Raw HTML'
+  const [viewMode, setViewMode] = useState('Formatted Preview'); // 'Formatted Preview', 'Raw Markdown', or 'Raw HTML'
   const [content, setContent] = useState(demoText); // Initial content
   const defaultButtonRef = useRef(null);
 
@@ -91,13 +91,13 @@ function LiveMarkdownEditor() {
   }, [])
 
   function getPreviewElement() {
-    if (viewMode === 'HTML Preview') {
-      return <ProseMirrorView className="prose-mirror-view" content={content} onChange={setContent} ref={defaultButtonRef} />
+    if (viewMode === 'Formatted Preview') {
+      return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} ref={defaultButtonRef} />
     } else if (viewMode === 'Raw HTML') {
-      return <ProseMirrorView className="prose-mirror-view" content={content} onChange={setContent} />
-    } else {
-      return <pre onChange={setContent}>{content}</pre>
-    }
+      return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} />
+    } else if (viewMode === 'Raw Markdown') {
+      return <pre onChange={setContent} className="live-preview-content">{content}</pre>
+    } 
   }
 
   return (
@@ -105,16 +105,14 @@ function LiveMarkdownEditor() {
       <h2 className="text-editor-header">ProseMirror Text Editor</h2>
       <MarkdownView content={content} onChange={setContent} />
       <div className="view-buttons">
-        <button ref={defaultButtonRef} onClick={() => setViewMode('HTML Preview')}>HTML Preview</button>
-        <button onClick={() => setViewMode('Raw HTML')}>Raw HTML</button>
-        <button onClick={() => setViewMode('Raw Markdown')}>Raw Markdown</button>
+        <button ref={defaultButtonRef} onClick={() => setViewMode('Formatted Preview')}>Preview</button>
+        <button onClick={() => setViewMode('Raw HTML')}>HTML</button>
+        <button onClick={() => setViewMode('Raw Markdown')}>Markdown</button>
       </div>
 
       <div className="live-preview-container">
         <h3 id="live-preview-header-text">
-          {viewMode === 'HTML Preview' && 'Formatted'}
-          {viewMode === 'Raw HTML' && 'HTML'}
-          {viewMode === 'Raw Markdown' && 'Markdown'}
+          {viewMode}
         </h3>
         {getPreviewElement()}
       </div>

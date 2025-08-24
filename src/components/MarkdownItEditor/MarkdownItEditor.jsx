@@ -9,7 +9,7 @@ const LiveMarkdownEditor = () => {
   const [textInput, setTextInput] = useState(demoText);
   const [htmlPreview, setHtmlPreview] = useState('');
     //TODO make viewMode load from config
-  const [viewMode, setViewMode] = useState('HTML Preview'); // 'HTML Preview', 'Raw Markdown', or 'Raw HTML'
+  const [viewMode, setViewMode] = useState('Formatted Preview'); // "Formatted Preview", "Raw HTML", "Raw Markdown"
   const defaultButtonRef = useRef(null);
 
   useEffect(() => {
@@ -28,13 +28,13 @@ const LiveMarkdownEditor = () => {
   };
 
   function getPreviewElement() {
-    if (viewMode === 'HTML Preview') {
-      return <div dangerouslySetInnerHTML={{ __html: htmlPreview }} />
+    if (viewMode === 'Formatted Preview') {
+      return <div className="live-preview-content" dangerouslySetInnerHTML={{ __html: htmlPreview }} />
     } else if (viewMode === 'Raw HTML') {
-      return <pre>{htmlPreview}</pre>
-    } else {
-      return <pre>{textInput}</pre>
-    }
+      return <pre className="live-preview-content">{htmlPreview}</pre>
+    } else if (viewMode === 'Raw Markdown') {
+      return <pre className="live-preview-content">{textInput}</pre>
+    } 
   }
 
   return (
@@ -47,15 +47,13 @@ const LiveMarkdownEditor = () => {
         className="markdown-input"
       />
       <div className="view-buttons">
-        <button ref={defaultButtonRef} onClick={() => setViewMode('HTML Preview')}>HTML Preview</button>
-        <button onClick={() => setViewMode('Raw HTML')}>Raw HTML</button>
-        <button onClick={() => setViewMode('Raw Markdown')}>Raw Markdown</button>
+        <button ref={defaultButtonRef} onClick={() => setViewMode('Formatted Preview')}>Preview</button>
+        <button onClick={() => setViewMode('Raw HTML')}>HTML</button>
+        <button onClick={() => setViewMode('Raw Markdown')}>Markdown</button>
       </div>
       <div className="live-preview-container">
         <h3 id="live-preview-header-text">
-          {viewMode === 'HTML Preview' && 'Formatted'}
-          {viewMode === 'Raw HTML' && 'HTML'}
-          {viewMode === 'Raw Markdown' && 'Markdown'}
+          {viewMode}
         </h3>
           {getPreviewElement()}
       </div>

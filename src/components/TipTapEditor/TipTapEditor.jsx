@@ -43,10 +43,9 @@ const MarkdownEditor = () => {
       return <div className="live-preview-content" dangerouslySetInnerHTML={{ __html: marked(textContent) }} ></div>
     }
     else if (viewMode === 'Raw HTML') {   
-      console.log(markdownToHTML(textContent))
       return <pre className="live-preview-content">{markdownToHTML(textContent)}</pre>
     }
-    else {
+    else if (viewMode === 'Raw Markdown'){
       return <pre className="live-preview-content">{textContent}</pre>
     } 
   }
@@ -61,7 +60,7 @@ const MarkdownEditor = () => {
       />
 
       <div className="view-buttons">
-        <button onClick={() => setViewMode('Formatted Preview')} ref={defaultButtonRef} >Formatted</button>
+        <button onClick={() => setViewMode('Formatted Preview')} ref={defaultButtonRef} >Preview</button>
         <button onClick={() => setViewMode('Raw HTML')}>HTML</button>
         <button onClick={() => setViewMode('Raw Markdown')}>Markdown</button>
       </div>
