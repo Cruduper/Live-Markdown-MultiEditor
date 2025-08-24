@@ -2,26 +2,24 @@
 .text-editor-tiptap {
   display: flex;
   flex-direction: column;
+  place-items: center;
   gap: 1rem;
-}
-
-.text-editor-tiptap .text-editor-header {
-  text-align: center;
 }
 
 .text-editor-tiptap .markdown-input,
 .text-editor-tiptap .live-preview-container {
-  max-width: 50vw; 
-  min-width: 325px;
+  width: 69vw;
+  max-width: 1080px;
+  min-width: 420px;
   min-height: 240px; 
-  font-size: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border: 1px solid #ddd;
   border-radius: 0px;
   background-color: #f9f9f9;
-  box-shadow: 0.5em 0.5em 0.9em #ddd;
+  box-shadow: 5px 5px 4px #bbb;
   overflow-wrap: break-word;
+  border: 1px solid black;
 }
 
 /***** INDIVIDUAL PANES *****/
