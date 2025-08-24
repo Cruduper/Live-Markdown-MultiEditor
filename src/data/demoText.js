@@ -26,7 +26,7 @@ function write (){
 
 \`\`\`
 
-...or we could type some \`inline || code\` and see how that looks like. Now let's add a horizontal rule below.
+...or we could type some \`<inline code>\` and see how that looks. Now let's add a horizontal rule below.
 
 ---
 
