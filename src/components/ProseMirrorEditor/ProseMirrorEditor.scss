@@ -4,27 +4,22 @@
   flex-direction: column;
   place-items: center;
   gap: 1rem;
-  margin: 0;
-}
-
-.text-editor-pm .text-editor-header {
-  // text-align: center;
-
 }
 
 .text-editor-pm .markdown-input,
 .text-editor-pm .live-preview-container {
-  width: 50vw;
-  min-width: 325px;
+  width: 69vw;
+  max-width: 1080px;
+  min-width: 420px;
   min-height: 240px;
-  font-size: 1rem;
-  // padding-left: 1rem;
-  // padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border: 1px solid #ddd;
   border-radius: 0px;
   background-color: #f9f9f9;
-  box-shadow: 0.5em 0.5em 0.9em #ddd;
+  box-shadow: 5px 5px 4px #bbb;
   overflow-wrap: break-word;
+  border: 1px solid black; 
 }
 
 /***** INDIVIDUAL PANES *****/
@@ -32,20 +27,19 @@
   height: 30vh;
 }
 
-.text-editor-pm textarea {
-  width: 100% !important;
-  height: inherit !important;
-  // box-sizing: border-box !important;
-  display: flex !important;
-
-}
-
 .text-editor-pm .live-preview-container {
   height: 40vh;
 }
 
-.text-editor-pm .prose-mirror-view {
-  width: 100%;
+.text-editor-pm textarea {
+  // height: inherit !important;
+  // box-sizing:border-box;
+  // width: inherit;
+}
+
+.text-editor-pm textarea,
+.text-editor-pm .ProseMirror {
+
 }
 
 

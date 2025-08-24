@@ -38,7 +38,7 @@ function MarkdownView({ content, onChange }) {
     <textarea
       value={text}
       onChange={(e) => setText(e.target.value)}
-      style={{ width: "100%", height: "400px" }}
+      className="markdown-input"
     />
   );
 }
@@ -75,8 +75,7 @@ function ProseMirrorView({ content, onChange }) {
     };
   }, [content, onChange]);
 
-  return <div ref={editorRef} 
-  />;
+  return <div ref={editorRef} />;
 }
 
 // Main Editor Component
@@ -104,9 +103,7 @@ function LiveMarkdownEditor() {
   return (
     <div className="text-editor-pm">
       <h2 className="text-editor-header">ProseMirror Text Editor</h2>
-      <div className="markdown-input">
-        <MarkdownView  content={content} onChange={setContent} />
-      </div >
+      <MarkdownView content={content} onChange={setContent} />
       <div className="view-buttons">
         <button ref={defaultButtonRef} onClick={() => setViewMode('HTML Preview')}>HTML Preview</button>
         <button onClick={() => setViewMode('Raw HTML')}>Raw HTML</button>
