@@ -1,16 +1,16 @@
 /***** BOTH TEXT PANES *****/
-.text-editor {
+.text-editor-tiptap {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.text-editor .text-editor-header {
+.text-editor-tiptap .text-editor-header {
   text-align: center;
 }
 
-.text-editor .markdown-input,
-.text-editor .live-preview-container {
+.text-editor-tiptap .markdown-input,
+.text-editor-tiptap .live-preview-container {
   max-width: 50vw; 
   min-width: 325px;
   min-height: 240px; 
@@ -25,22 +25,22 @@
 }
 
 /***** INDIVIDUAL PANES *****/
-.text-editor .markdown-input {
+.text-editor-tiptap .markdown-input {
   height: 30vh;
 }
 
-.text-editor .live-preview-container {
+.text-editor-tiptap .live-preview-container {
   height: 40vh;
 }
 
 
 /***** BUTTONS *****/
-.text-editor .view-buttons {
+.text-editor-tiptap .view-buttons {
   display: flex;
   gap: 0.5rem;
 }
 
-.text-editor .view-buttons button {
+.text-editor-tiptap .view-buttons button {
   padding: 0.5rem 1rem;
   margin-top: 1em;
   margin-bottom: 0.0em;
@@ -67,7 +67,7 @@
 
 
 /***** LIVE PREVIEW PANE *****/
-.text-editor .live-preview-container {
+.text-editor-tiptap .live-preview-container {
   overflow-x: hidden;
   overflow-y: scroll;
   text-align: left;
@@ -76,7 +76,7 @@
   }
 }
 
-#live-preview-header-text {
+#live-preview-header-text-tiptap {
   position: sticky;
   top: 0;
   color: #bbb;

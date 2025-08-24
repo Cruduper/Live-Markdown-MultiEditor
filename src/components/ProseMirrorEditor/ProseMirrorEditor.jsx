@@ -104,7 +104,7 @@ function LiveMarkdownEditor() {
   }
 
   return (
-    <div className="text-editor">
+    <div className="text-editor-pm">
       <h2 className="text-editor-header">ProseMirror Text Editor</h2>
       <div className="markdown-input">
         <MarkdownView  content={content} onChange={setContent} />
@@ -116,7 +116,7 @@ function LiveMarkdownEditor() {
       </div>
 
       <div className="live-preview-container">
-        <h3 id="live-preview-header-text">
+        <h3 id="live-preview-header-text-pm">
           {viewMode === 'HTML Preview' && 'Formatted'}
           {viewMode === 'Raw HTML' && 'HTML'}
           {viewMode === 'Raw Markdown' && 'Markdown'}

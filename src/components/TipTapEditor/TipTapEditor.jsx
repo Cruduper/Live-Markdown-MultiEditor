@@ -52,7 +52,7 @@ const MarkdownEditor = () => {
   }
 
   return (
-    <div className="text-editor">
+    <div className="text-editor-tiptap">
       <h2 className="text-editor-header">TipTap Text Editor</h2>
       <textarea className="markdown-input"
         onChange={handleInputChange}
@@ -67,7 +67,7 @@ const MarkdownEditor = () => {
       </div>
 
       <div className="live-preview-container">
-        <h3 id="live-preview-header-text">
+        <h3 id="live-preview-header-text-tiptap">
           {viewMode}
         </h3>
         {getPreviewElement()} 

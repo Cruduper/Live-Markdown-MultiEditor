@@ -39,7 +39,7 @@ const LiveMarkdownEditor = () => {
 
   return (
     <>
-    <div className="text-editor">
+    <div className="text-editor-md-it">
       <h2 className="text-editor-header">Markdown-it Text Editor</h2>
       <textarea
         value={textInput}
@@ -52,7 +52,7 @@ const LiveMarkdownEditor = () => {
         <button onClick={() => setViewMode('Raw Markdown')}>Raw Markdown</button>
       </div>
       <div className="live-preview-container">
-        <h3 id="live-preview-header-text">
+        <h3 id="live-preview-header-text-md-it">
           {viewMode === 'HTML Preview' && 'Formatted'}
           {viewMode === 'Raw HTML' && 'HTML'}
           {viewMode === 'Raw Markdown' && 'Markdown'}

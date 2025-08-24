@@ -1,5 +1,5 @@
 /***** BOTH TEXT PANES *****/
-.text-editor {
+.text-editor-pm {
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -7,13 +7,13 @@
   margin: 0;
 }
 
-.text-editor .text-editor-header {
+.text-editor-pm .text-editor-header {
   // text-align: center;
 
 }
 
-.text-editor .markdown-input,
-.text-editor .live-preview-container {
+.text-editor-pm .markdown-input,
+.text-editor-pm .live-preview-container {
   width: 50vw;
   min-width: 325px;
   min-height: 240px;
@@ -28,11 +28,11 @@
 }
 
 /***** INDIVIDUAL PANES *****/
-.text-editor .markdown-input {
+.text-editor-pm .markdown-input {
   height: 30vh;
 }
 
-.text-editor textarea {
+.text-editor-pm textarea {
   width: 100% !important;
   height: inherit !important;
   // box-sizing: border-box !important;
@@ -40,23 +40,23 @@
 
 }
 
-.text-editor .live-preview-container {
+.text-editor-pm .live-preview-container {
   height: 40vh;
 }
 
-.text-editor .prose-mirror-view {
+.text-editor-pm .prose-mirror-view {
   width: 100%;
 }
 
 
 
 /***** BUTTONS *****/
-.text-editor .view-buttons {
+.text-editor-pm .view-buttons {
   display: flex;
   gap: 0.5rem;
 }
 
-.text-editor .view-buttons button {
+.text-editor-pm .view-buttons button {
   padding: 0.5rem 1rem;
   margin-top: 1em;
   margin-bottom: 0.0em;
@@ -83,7 +83,7 @@
 
 
 /***** LIVE PREVIEW PANE *****/
-.text-editor .live-preview-container {
+.text-editor-pm .live-preview-container {
   overflow-x: hidden;
   overflow-y: scroll;
   text-align: left;
@@ -93,7 +93,7 @@
   }
 }
 
-#live-preview-header-text {
+#live-preview-header-text-pm {
   position: sticky;
   top: 0;
   color: #bbb;
