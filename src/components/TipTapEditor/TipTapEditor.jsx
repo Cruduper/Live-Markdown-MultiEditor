@@ -5,10 +5,11 @@ import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import { marked } from 'marked';
 import { demoText } from '../../data/demoText.js'
+import { DEFAULT, viewModeList as modes } from '../../data/viewModeList.js'
 import '/src/styles/editor-styles.scss';
 
 const MarkdownEditor = () => {
-  const [viewMode, setViewMode] = useState('Formatted Preview'); // "Formatted Preview", "Raw HTML", "Raw Markdown"
+  const [viewMode, setViewMode] = useState(modes[DEFAULT]); 
   const [textContent, setTextContent] = useState(demoText);
   const defaultButtonRef = useRef(null);
   const editor = useEditor({
@@ -39,15 +40,18 @@ const MarkdownEditor = () => {
   }
 
   function getPreviewElement() {
-    if (viewMode === 'Formatted Preview') {
+    if (viewMode === modes.FORMATTED) {
       return <div className="live-preview-content" dangerouslySetInnerHTML={{ __html: marked(textContent) }} ></div>
-    }
-    else if (viewMode === 'Raw HTML') {   
+    } 
+    else if (viewMode === modes.HTML) {   
       return <pre className="live-preview-content">{markdownToHTML(textContent)}</pre>
-    }
-    else if (viewMode === 'Raw Markdown'){
+    } 
+    else if (viewMode === modes.MARKDOWN){
       return <pre className="live-preview-content">{textContent}</pre>
     } 
+    else {
+      return <pre className="live-preview-content">Error: "{viewMode}" is not a valid view mode.</pre>
+    }
   }
 
   return (
@@ -60,14 +64,22 @@ const MarkdownEditor = () => {
       />
 
       <div className="view-buttons">
-        <button onClick={() => setViewMode('Formatted Preview')} ref={defaultButtonRef} >Preview</button>
-        <button onClick={() => setViewMode('Raw HTML')}>HTML</button>
-        <button onClick={() => setViewMode('Raw Markdown')}>Markdown</button>
+        {Object.keys(modes).map((modeKey) => {
+          if (modeKey === DEFAULT) {
+            return <button onClick={() => setViewMode(modes[modeKey])} ref={defaultButtonRef}>
+              {modes[modeKey].btnText}
+            </button>
+          } else {
+            return <button onClick={() => setViewMode(modes[modeKey])}>
+              {modes[modeKey].btnText}
+            </button>
+          }
+        })}
       </div>
 
       <div className="live-preview-container">
         <h3 id="live-preview-header-text">
-          {viewMode}
+          {viewMode.headerText}
         </h3>
         {getPreviewElement()} 
       </div>
