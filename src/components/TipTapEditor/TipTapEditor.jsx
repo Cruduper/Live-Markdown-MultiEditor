@@ -5,7 +5,7 @@ import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import { marked } from 'marked';
 import { demoText } from '../../data/demoText.js'
-import './TipTapEditor.scss'
+import '/src/styles/editor-styles.scss';
 
 const MarkdownEditor = () => {
   const [viewMode, setViewMode] = useState('Formatted Preview'); // "Formatted Preview", "Raw HTML", "Raw Markdown"
@@ -52,7 +52,7 @@ const MarkdownEditor = () => {
   }
 
   return (
-    <div className="text-editor-tiptap">
+    <div className="text-editor">
       <h2 className="text-editor-header">TipTap Text Editor</h2>
       <textarea className="markdown-input"
         onChange={handleInputChange}
@@ -67,7 +67,7 @@ const MarkdownEditor = () => {
       </div>
 
       <div className="live-preview-container">
-        <h3 id="live-preview-header-text-tiptap">
+        <h3 id="live-preview-header-text">
           {viewMode}
         </h3>
         {getPreviewElement()} 

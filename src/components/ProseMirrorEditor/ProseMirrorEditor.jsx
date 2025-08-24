@@ -9,7 +9,7 @@ import { schema, defaultMarkdownParser, defaultMarkdownSerializer } from "prosem
 // import { exampleSetup } from "prosemirror-example-setup";
 import "prosemirror-view/style/prosemirror.css";
 import demoText from '../../data/demoText.js'
-import './ProseMirrorEditor.scss';
+import '/src/styles/editor-styles.scss';
 
 
 const markSchema = new Schema({
@@ -101,7 +101,7 @@ function LiveMarkdownEditor() {
   }
 
   return (
-    <div className="text-editor-pm">
+    <div className="text-editor">
       <h2 className="text-editor-header">ProseMirror Text Editor</h2>
       <MarkdownView content={content} onChange={setContent} />
       <div className="view-buttons">
@@ -111,7 +111,7 @@ function LiveMarkdownEditor() {
       </div>
 
       <div className="live-preview-container">
-        <h3 id="live-preview-header-text-pm">
+        <h3 id="live-preview-header-text">
           {viewMode === 'HTML Preview' && 'Formatted'}
           {viewMode === 'Raw HTML' && 'HTML'}
           {viewMode === 'Raw Markdown' && 'Markdown'}

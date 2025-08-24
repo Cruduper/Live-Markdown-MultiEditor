@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MarkdownIt from 'markdown-it';
 import {demoText} from '../../data/demoText.js'
-import './MarkdownItEditor.scss';
+import '/src/styles/editor-styles.scss';
 
 const md_it = new MarkdownIt();
 
@@ -39,7 +39,7 @@ const LiveMarkdownEditor = () => {
 
   return (
     <>
-    <div className="text-editor-md-it">
+    <div className="text-editor">
       <h2 className="text-editor-header">Markdown-it Text Editor</h2>
       <textarea
         value={textInput}
@@ -52,7 +52,7 @@ const LiveMarkdownEditor = () => {
         <button onClick={() => setViewMode('Raw Markdown')}>Raw Markdown</button>
       </div>
       <div className="live-preview-container">
-        <h3 id="live-preview-header-text-md-it">
+        <h3 id="live-preview-header-text">
           {viewMode === 'HTML Preview' && 'Formatted'}
           {viewMode === 'Raw HTML' && 'HTML'}
           {viewMode === 'Raw Markdown' && 'Markdown'}
