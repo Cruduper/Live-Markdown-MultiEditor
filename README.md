@@ -39,6 +39,7 @@ I am trying out various libraries for this task so I may have other repos with s
 4. Input needs to be sanitized!
 5. ProseMirror has issues with Raw HTML View, some styling (strikeouts, etc), and URL links
 6. Need to add more libraries (Quill? Slate? Others?)
+7. Designed for large screens! This type of functionality is not as useful on small screens, so I haven't bothered with responsive styling for mobile yet. 
 
 <br><br/>
 
