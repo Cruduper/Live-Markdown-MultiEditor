@@ -1,6 +1,4 @@
 ## Fixes
-- Fix component function names for each editor
-- Decrease hardcoding in editor components with config file/s
 - MultiEditor: style buttons for switching editors
 - Remove debug console logs
 
