@@ -10,7 +10,7 @@ const md_it = new MarkdownIt();
 
 
 
-const MarkdownItEditor = () => {
+function MarkdownItEditor() {
   const [viewMode, setViewMode] = useState(modes[DEFAULT]); 
   const [content, setContent] = useState(demoText);
   const [htmlPreview, setHtmlPreview] = useState('');
