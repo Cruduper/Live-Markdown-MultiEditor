@@ -13,6 +13,7 @@
 - Input is not sanitized
 - ProseMirrorEditor: state update bug when typing into text input field
 - ProseMirrorEditor: can't display strikeout
+- If you click on a editor button while that editor is already displayed, the active mode button stops being highlighted
 
 
 
