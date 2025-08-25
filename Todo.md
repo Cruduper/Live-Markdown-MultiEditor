@@ -1,6 +1,5 @@
 ## Fixes
 - MultiEditor: style buttons for switching editors
-- Remove debug console logs
 
 
 
