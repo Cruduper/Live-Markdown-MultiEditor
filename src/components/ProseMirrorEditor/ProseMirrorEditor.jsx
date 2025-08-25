@@ -9,6 +9,7 @@ import { schema, defaultMarkdownParser, defaultMarkdownSerializer } from "prosem
 // import { exampleSetup } from "prosemirror-example-setup";
 import "prosemirror-view/style/prosemirror.css";
 import demoText from '../../data/demoText.js'
+import { DEFAULT, viewModeList as modes } from '../../data/viewModeList.js'
 import '/src/styles/editor-styles.scss';
 
 
@@ -80,7 +81,7 @@ function ProseMirrorView({ content, onChange }) {
 
 // Main Editor Component
 function LiveMarkdownEditor() {
-  const [viewMode, setViewMode] = useState('Formatted Preview'); // 'Formatted Preview', 'Raw Markdown', or 'Raw HTML'
+  const [viewMode, setViewMode] = useState(modes[DEFAULT]); // 'Formatted Preview', 'Raw Markdown', or 'Raw HTML'
   const [content, setContent] = useState(demoText); // Initial content
   const defaultButtonRef = useRef(null);
 
@@ -91,11 +92,11 @@ function LiveMarkdownEditor() {
   }, [])
 
   function getPreviewElement() {
-    if (viewMode === 'Formatted Preview') {
+    if (viewMode === modes.FORMATTED) {
       return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} ref={defaultButtonRef} />
-    } else if (viewMode === 'Raw HTML') {
+    } else if (viewMode === modes.HTML) {
       return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} />
-    } else if (viewMode === 'Raw Markdown') {
+    } else if (viewMode === modes.MARKDOWN) {
       return <pre onChange={setContent} className="live-preview-content">{content}</pre>
     } 
   }
@@ -105,14 +106,22 @@ function LiveMarkdownEditor() {
       <h2 className="text-editor-header">ProseMirror Text Editor</h2>
       <MarkdownView content={content} onChange={setContent} />
       <div className="view-buttons">
-        <button ref={defaultButtonRef} onClick={() => setViewMode('Formatted Preview')}>Preview</button>
-        <button onClick={() => setViewMode('Raw HTML')}>HTML</button>
-        <button onClick={() => setViewMode('Raw Markdown')}>Markdown</button>
+        {Object.keys(modes).map((modeKey) => {
+          if (modeKey === DEFAULT) {
+            return <button onClick={() => setViewMode(modes[modeKey])} ref={defaultButtonRef}>
+              {modes[modeKey].btnText}
+            </button>
+          } else {
+            return <button onClick={() => setViewMode(modes[modeKey])}>
+              {modes[modeKey].btnText}
+            </button>
+          }
+        })}
       </div>
 
       <div className="live-preview-container">
         <h3 id="live-preview-header-text">
-          {viewMode}
+          {viewMode.headerText}
         </h3>
         {getPreviewElement()}
       </div>
