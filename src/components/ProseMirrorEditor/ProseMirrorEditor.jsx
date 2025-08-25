@@ -44,7 +44,7 @@ function MarkdownView({ content, setContent, onChange }) {
   );
 }
 
-function ProseMirrorView({ content, onChange }) {
+function ProseMirrorView({ className, content, onChange }) {
   const editorRef = useRef(null);
   const viewRef = useRef(null);
 
@@ -75,7 +75,7 @@ function ProseMirrorView({ content, onChange }) {
     };
   }, [content, onChange]);
 
-  return <div ref={editorRef} />;
+  return <div className={className} ref={editorRef} />;
 }
 
 
