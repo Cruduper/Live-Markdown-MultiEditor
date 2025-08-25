@@ -8,9 +8,11 @@ import { demoText } from '../../data/demoText.js'
 import { DEFAULT, viewModeList as modes } from '../../data/viewModeList.js'
 import '/src/styles/editor-styles.scss';
 
-const MarkdownEditor = () => {
+
+
+function TipTapEditor() {
   const [viewMode, setViewMode] = useState(modes[DEFAULT]); 
-  const [textContent, setTextContent] = useState(demoText);
+  const [content, setContent] = useState(demoText);
   const defaultButtonRef = useRef(null);
   const editor = useEditor({
     extensions: [
@@ -18,7 +20,7 @@ const MarkdownEditor = () => {
       Highlight, 
       Typography
     ],
-    content: textContent,
+    content: content,
   });
 
   useEffect(() => {
@@ -30,24 +32,23 @@ const MarkdownEditor = () => {
   const handleInputChange = (event) => {
     const content = event.target.value;
 
-    setTextContent(content);
+    setContent(content);
     editor.commands.setContent(content);
   };
 
   function markdownToHTML(markdownInput) {
-    console.log("markdown input: " + markdownInput)
     return marked(markdownInput);
   }
 
   function getPreviewElement() {
     if (viewMode === modes.FORMATTED) {
-      return <div className="live-preview-content" dangerouslySetInnerHTML={{ __html: marked(textContent) }} ></div>
+      return <div className="live-preview-content" dangerouslySetInnerHTML={{ __html: marked(content) }} ></div>
     } 
     else if (viewMode === modes.HTML) {   
-      return <pre className="live-preview-content">{markdownToHTML(textContent)}</pre>
+      return <pre className="live-preview-content">{markdownToHTML(content)}</pre>
     } 
     else if (viewMode === modes.MARKDOWN){
-      return <pre className="live-preview-content">{textContent}</pre>
+      return <pre className="live-preview-content">{content}</pre>
     } 
     else {
       return <pre className="live-preview-content">Error: "{viewMode}" is not a valid view mode.</pre>
@@ -59,14 +60,14 @@ const MarkdownEditor = () => {
       <h2 className="text-editor-header">TipTap Text Editor</h2>
       <textarea className="markdown-input"
         onChange={handleInputChange}
-        value={textContent}
+        value={content}
         placeholder="Type your content here..."
       />
 
       <div className="view-buttons">
         {Object.keys(modes).map((modeKey) => {
           if (modeKey === DEFAULT) {
-            return <button onClick={() => setViewMode(modes[modeKey])} ref={defaultButtonRef}>
+            return <button ref={defaultButtonRef} onClick={() => setViewMode(modes[modeKey])}>
               {modes[modeKey].btnText}
             </button>
           } else {
@@ -87,4 +88,4 @@ const MarkdownEditor = () => {
   );
 };
 
-export default MarkdownEditor;
+export default TipTapEditor;
