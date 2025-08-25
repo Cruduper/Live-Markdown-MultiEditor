@@ -13,6 +13,7 @@ import { DEFAULT, viewModeList as modes } from '../../data/viewModeList.js'
 import '/src/styles/editor-styles.scss';
 
 
+
 const markSchema = new Schema({
   nodes: {
     doc: { content: "block+" },
@@ -27,12 +28,12 @@ const markSchema = new Schema({
 })
 
 
-// MarkdownView Component
+
 function MarkdownView({ content, onChange }) {
   const [text, setText] = useState(content);
 
   useEffect(() => {
-    onChange(text); // Call onChange when text updates
+    onChange(text);
   }, [text, onChange]);
 
   return (
@@ -43,7 +44,6 @@ function MarkdownView({ content, onChange }) {
     />
   );
 }
-
 
 function ProseMirrorView({ content, onChange }) {
   const editorRef = useRef(null);
@@ -79,10 +79,11 @@ function ProseMirrorView({ content, onChange }) {
   return <div ref={editorRef} />;
 }
 
-// Main Editor Component
-function LiveMarkdownEditor() {
-  const [viewMode, setViewMode] = useState(modes[DEFAULT]); // 'Formatted Preview', 'Raw Markdown', or 'Raw HTML'
-  const [content, setContent] = useState(demoText); // Initial content
+
+
+function ProseMirrorEditor() {
+  const [viewMode, setViewMode] = useState(modes[DEFAULT]); 
+  const [content, setContent] = useState(demoText); 
   const defaultButtonRef = useRef(null);
 
   useEffect(() => {
@@ -93,11 +94,11 @@ function LiveMarkdownEditor() {
 
   function getPreviewElement() {
     if (viewMode === modes.FORMATTED) {
-      return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} ref={defaultButtonRef} />
+      return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent}  />
     } else if (viewMode === modes.HTML) {
       return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} />
     } else if (viewMode === modes.MARKDOWN) {
-      return <pre onChange={setContent} className="live-preview-content">{content}</pre>
+      return <pre className="live-preview-content" onChange={setContent}>{content}</pre>
     } 
   }
 
@@ -108,7 +109,7 @@ function LiveMarkdownEditor() {
       <div className="view-buttons">
         {Object.keys(modes).map((modeKey) => {
           if (modeKey === DEFAULT) {
-            return <button onClick={() => setViewMode(modes[modeKey])} ref={defaultButtonRef}>
+            return <button ref={defaultButtonRef} onClick={() => setViewMode(modes[modeKey])} >
               {modes[modeKey].btnText}
             </button>
           } else {
@@ -129,4 +130,4 @@ function LiveMarkdownEditor() {
   );
 }
 
-export default LiveMarkdownEditor;
+export default ProseMirrorEditor;
