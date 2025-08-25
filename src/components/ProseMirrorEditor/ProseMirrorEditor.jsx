@@ -29,17 +29,16 @@ const markSchema = new Schema({
 
 
 
-function MarkdownView({ content, onChange }) {
-  const [text, setText] = useState(content);
+function MarkdownView({ content, setContent, onChange }) {
 
   useEffect(() => {
-    onChange(text);
-  }, [text, onChange]);
+    onChange(content);
+  }, [content, onChange]);
 
   return (
     <textarea
-      value={text}
-      onChange={(e) => setText(e.target.value)}
+      value={content}
+      onChange={(e) => setContent(e.target.value)}
       className="markdown-input"
     />
   );
@@ -94,9 +93,9 @@ function ProseMirrorEditor() {
 
   function getPreviewElement() {
     if (viewMode === modes.FORMATTED) {
-      return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent}  />
+      return <ProseMirrorView className="live-preview-content" content={content} setContent={setContent} onChange={setContent}  />
     } else if (viewMode === modes.HTML) {
-      return <ProseMirrorView className="live-preview-content" content={content} onChange={setContent} />
+      return <ProseMirrorView className="live-preview-content" content={content} setContent={setContent} onChange={setContent} />
     } else if (viewMode === modes.MARKDOWN) {
       return <pre className="live-preview-content" onChange={setContent}>{content}</pre>
     } 
