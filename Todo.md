@@ -1,9 +1,6 @@
 ## Fixes
 - Fix component function names for each editor
 - Decrease hardcoding in editor components with config file/s
-- Increase consistency between files:
-  - state variable names
-  - coding conventions/code shape
 - MultiEditor: style buttons for switching editors
 - Remove debug console logs
 
@@ -11,7 +8,6 @@
 
 ## Bugs
 - Input is not sanitized
-- ProseMirrorEditor: state update bug when typing into text input field
 - ProseMirrorEditor: can't display strikeout
 - If you click on a editor button while that editor is already displayed, the active mode button stops being highlighted
 
