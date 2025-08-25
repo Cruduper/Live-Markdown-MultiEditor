@@ -58,12 +58,6 @@ function ProseMirrorView({ className, content, onChange }) {
             keymap({ "Mod-z": undo, "Mod-y": redo })
           ]
         }),
-        dispatchTransaction(transaction) { //! DEBUG 
-          console.log("Document size went from", transaction.before.content.size,
-            "to", transaction.doc.content.size)
-          let newState = viewRef.current.state.apply(transaction)
-          viewRef.current.updateState(newState)
-        }
       });
     }
 
