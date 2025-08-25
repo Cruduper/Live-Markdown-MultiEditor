@@ -43,14 +43,11 @@ function TipTapEditor() {
   function getPreviewElement() {
     if (viewMode === modes.FORMATTED) {
       return <div className="live-preview-content" dangerouslySetInnerHTML={{ __html: marked(content) }} ></div>
-    } 
-    else if (viewMode === modes.HTML) {   
+    } else if (viewMode === modes.HTML) {   
       return <pre className="live-preview-content">{markdownToHTML(content)}</pre>
-    } 
-    else if (viewMode === modes.MARKDOWN){
+    } else if (viewMode === modes.MARKDOWN){
       return <pre className="live-preview-content">{content}</pre>
-    } 
-    else {
+    } else {
       return <pre className="live-preview-content">Error: "{viewMode}" is not a valid view mode.</pre>
     }
   }

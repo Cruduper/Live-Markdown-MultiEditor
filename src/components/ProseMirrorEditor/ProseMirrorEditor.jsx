@@ -98,7 +98,9 @@ function ProseMirrorEditor() {
       return <ProseMirrorView className="live-preview-content" content={content} setContent={setContent} onChange={setContent} />
     } else if (viewMode === modes.MARKDOWN) {
       return <pre className="live-preview-content" onChange={setContent}>{content}</pre>
-    } 
+    } else {
+      return <pre className="live-preview-content">Error: "{viewMode}" is not a valid view mode.</pre>
+    }
   }
 
   return (
