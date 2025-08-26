@@ -6,7 +6,6 @@ import { undo, redo, history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { baseKeymap } from "prosemirror-commands"
 import { schema, defaultMarkdownParser, defaultMarkdownSerializer } from "prosemirror-markdown";
-// import { exampleSetup } from "prosemirror-example-setup";
 import "prosemirror-view/style/prosemirror.css";
 import demoText from '../../data/demoText.js'
 import { DEFAULT, viewModeList as modes } from '../../data/viewModeList.js'
@@ -55,7 +54,10 @@ function ProseMirrorView({ className, content, onChange }) {
           doc: defaultMarkdownParser.parse(content),
           plugins: [
             history(),
-            keymap({ "Mod-z": undo, "Mod-y": redo })
+            keymap({ 
+              "Mod-z": undo, 
+              "Mod-y": redo, 
+            }),
           ]
         }),
       });
